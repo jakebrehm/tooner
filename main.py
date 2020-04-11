@@ -10,13 +10,35 @@ import requests
 
 class ToontownLauncher:
 
-    def __init__(self, directory):
+    def __init__(self, directory, attempts=5, console_output=True):
 
         self.directory = directory
         self.api_url = 'https://www.toontownrewritten.com/api/login?format=json'
 
-    def connect(self, **data):
-        print(data)
+        self._attempts = 0
+        self.maximum_attempts = attempts
+
+        self.console_output = console_output
+
+    def play(self, **data):
+        self._connect(**data)
+
+    def _message(self, message):
+        if self.console_output:
+            print(message)
+
+    def _connect(self, **data):
+
+        self._attempts += 1
+        if self._attempts > self.maximum_attempts:
+            self._message(
+                'The maximum number of attempts has been reached. '
+                'Please try again.'
+            )
+            return
+
+
+        app_token = data.pop('appToken', None)
 
         post = requests.post(
             self.api_url,
@@ -29,39 +51,53 @@ class ToontownLauncher:
         success = response.get('success', 'false')
 
         if success == 'true':
-            print('True.')
-            print(response)
             cookie = response.get('cookie', 'CookieNotFound')
             game_server = response.get('gameserver', 'ServerNotFound')
+            self._message('Successful granted access.')
             self._launch_game(cookie, game_server)
 
-        elif success == 'false':
-            print('False.')
-            pass
-
         elif success == 'partial':
-            print('Partial.')
-            pass
+            authorization_token = response.get('responseToken', None)
+            if not app_token or not authorization_token:
+                pass # TODO
+            time.sleep(3)
+            self._connect(appToken=app_token, authToken=authorization_token)
 
         elif success == 'delayed':
-            print('Delayed.')
-            queue_token = response.get('queueToken')
+            queue_token = response.get('queueToken', None)
+            if not queue_token:
+                pass # TODO
             position = response.get('position')
-            print(f'You are currently queued in position {position}.')
+            self._message(f'You are currently queued in position {position}.')
             time.sleep(3)
-            self.connect(queueToken=queue_token)
+            self._connect(queueToken=queue_token)
+
+        elif success == 'false':
+            self._message(
+                'Connection failed. '
+                'Please check your username and password and try again.'
+            )
 
     def _launch_game(self, play_cookie, game_server):
+
+        operating_system = platform.system()
 
         os.environ['TTR_PLAYCOOKIE'] = play_cookie
         os.environ['TTR_GAMESERVER'] = game_server
 
-        # engine = os.path.join(self.directory, 'TTREngine.exe')
-        # os.system(f'"{engine}"')
         os.chdir(self.directory)
-        subprocess.Popen(args="TTREngine.exe", creationflags=0x08000000)
-        print('Successfully connected')
-        time.sleep(5)
+
+        if operating_system == 'Windows':
+            subprocess.Popen(args="TTREngine.exe", creationflags=0x08000000)
+        elif operating_system == 'Linux':
+            pass # TODO
+        elif operating_system == 'Darwin':
+            pass # TODO
+        else:
+            pass # TODO
+    
+        self._message('Successfully connected.')
+        time.sleep(5) 
         
 
 if __name__ == '__main__':
@@ -82,7 +118,7 @@ if __name__ == '__main__':
 
     # Launch the game
     launcher1 = ToontownLauncher(toontown_directory)
-    launcher1.connect(username=username1, password=password1)
+    launcher1.play(username=username1, password=password1)
 
-    launcher2 = ToontownLauncher(toontown_directory)
-    launcher2.connect(username=username2, password=password2)
+    # launcher2 = ToontownLauncher(toontown_directory)
+    # launcher2.play(username=username2, password=password2)
