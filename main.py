@@ -2,6 +2,7 @@ import configparser
 import json
 import os
 import platform
+import subprocess
 import time
 
 import requests
@@ -50,13 +51,17 @@ class ToontownLauncher:
             time.sleep(3)
             self.connect(queueToken=queue_token)
 
-    def _launch_game(self, cookie, game_server):
+    def _launch_game(self, play_cookie, game_server):
 
-        os.environ['TTR_PLAYCOOKIE'] = cookie
+        os.environ['TTR_PLAYCOOKIE'] = play_cookie
         os.environ['TTR_GAMESERVER'] = game_server
 
-        engine = os.path.join(self.directory, 'TTREngine.exe')
-        os.system(f'"{engine}"')
+        # engine = os.path.join(self.directory, 'TTREngine.exe')
+        # os.system(f'"{engine}"')
+        os.chdir(self.directory)
+        subprocess.Popen(args="TTREngine.exe", creationflags=0x08000000)
+        print('Successfully connected')
+        time.sleep(5)
         
 
 if __name__ == '__main__':
@@ -76,5 +81,8 @@ if __name__ == '__main__':
     toontown_directory = r'C:\Program Files (x86)\Toontown Rewritten'
 
     # Launch the game
-    launcher = ToontownLauncher(toontown_directory)
-    launcher.connect(username=username1, password=password1)
+    launcher1 = ToontownLauncher(toontown_directory)
+    launcher1.connect(username=username1, password=password1)
+
+    launcher2 = ToontownLauncher(toontown_directory)
+    launcher2.connect(username=username2, password=password2)
