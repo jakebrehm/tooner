@@ -135,7 +135,6 @@ class ToontownLauncher:
             headers={'Content-type': 'application/x-www-form-urlencoded'},
         )
         # Return the json data from the response
-        print(post.json())
         return post.json()
 
     def _launch_game(self, play_cookie, game_server):

@@ -2,7 +2,7 @@
 
 '''
 multitooner.launcher unit test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Unit test of the launcher module of Multitooner.
 '''
@@ -21,7 +21,6 @@ class TestAnalyze(unittest.TestCase):
 
         # Initialize a ToontownLauncher object with a dummy install directory
         launcher = multitooner.launcher.ToontownLauncher('')
-        # launcher._connect(username='username', password='password')
         response = launcher._make_request({
             'username': 'test', 
             'password': 'test',
