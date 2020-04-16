@@ -22,6 +22,7 @@ Unfortunately, I couldn't find a way to start the Toontown Rewritten engine (*TT
 # Future plans for this project
 
 - Make a GUI to allow the user to store login information and start sessions for multiple toons
+- Refactor the launcher module to allow for better communication with the GUI
 - Send toast notifications for invasions
 - If multitooning, tile windows automatically
 - Find a way to make the login functionality work correctly on Mac
