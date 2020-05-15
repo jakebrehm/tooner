@@ -6,7 +6,7 @@ Currently, it allows you to communicate with Toontown Rewritten's login API in o
 
 ```
 launcher = multitooner.ToontownLauncher(directory="TTREngine.exe")
-launcher.play(username="username", password="password)
+launcher.play(username="username", password="password")
 ```
 
 If you're crazy, you can even combine these lines into one!
