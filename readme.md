@@ -17,10 +17,11 @@ The best part is that you can do this to **play multiple toons at once**.
 
 Since I normally play on MacOS, there is no way for me to open multiple sessions of the Toontown Rewritten launcher without doing it from the terminal; this was really annoying to do every time I wanted to multitoon (which is a lot), so I set out to make this easier.
 
-Unfortunately, I couldn't find a way to start the Toontown Rewritten engine (*TTREngine.exe* on Windows) on MacOS, so I had to give up on that dream for now. I was, however, successful in making this functionality work on Windows and, I assume, on Linux.
+Ultimately, I was successful in making this functionality work the three major operating systems: Windows, MacOS, and, I assume, on Linux (I haven't been able to test this).
 
 # Future plans for this project
 
+- Make a menu bar app for MacOS
 - Make a GUI to allow the user to store login information and start sessions for multiple toons
 - Refactor the launcher module to allow for better communication with the GUI
 - Send toast notifications for invasions
