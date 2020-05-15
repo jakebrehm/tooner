@@ -26,7 +26,6 @@ Ultimately, I was successful in making this functionality work the three major o
 - Refactor the launcher module to allow for better communication with the GUI
 - Send toast notifications for invasions
 - If multitooning, tile windows automatically
-- Find a way to make the login functionality work correctly on Mac
 
 # Authors
 - **Jake Brehm** - *Initial Work* - [Email](mailto:mail@jakebrehm.com) | [Github](http://github.com/jakebrehm) | [LinkedIn](http://linkedin.com/in/jacobbrehm)
