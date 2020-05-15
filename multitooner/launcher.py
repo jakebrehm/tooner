@@ -164,12 +164,9 @@ class ToontownLauncher:
             subprocess.Popen(args="TTREngine.exe", creationflags=0x08000000)
         elif operating_system == 'Linux':
             # TODO: Linux features are currently untested.
-            subprocess.Popen(args="./TTREngine", creationflags=0x08000000)
+            subprocess.Popen(args="./TTREngine")
         elif operating_system == 'Darwin':
-            self._message(
-                'Unfortunately, MacOS is not supported due to operating '
-                'system limitations.'
-            )
+            subprocess.Popen(args='./Toontown Rewritten')
         else:
             self._message('Your operating system is not currently supported.')
     
@@ -197,7 +194,8 @@ if __name__ == '__main__':
     password2 = config['Toon 2']['password']
 
     # Set the directory of the Toontown Rewritten engine
-    TOONTOWN_DIRECTORY = r'C:\Program Files (x86)\Toontown Rewritten'
+    # TOONTOWN_DIRECTORY = r'C:\Program Files (x86)\Toontown Rewritten'
+    TOONTOWN_DIRECTORY = r'/Users/jake/Library/Application Support/Toontown Rewritten/'
 
     # Launch the game for the first toon
     launcher1 = ToontownLauncher(TOONTOWN_DIRECTORY)
