@@ -30,12 +30,12 @@ class ToontownLauncher:
             The maximum number of attempts to connect before giving up.
             Accepts a None value to try infinitely, but this is not
             recommended.
-        console_output (bool) [True]:
+        debug (bool) [True]:
             Whether to write information to the console detailing
             communication with the API.
     '''
 
-    def __init__(self, directory, attempts=5, console_output=True):
+    def __init__(self, directory, attempts=5, debug=False):
         '''Please see help(ToontownLauncher) for more info.'''
 
         self.directory = directory
@@ -44,7 +44,8 @@ class ToontownLauncher:
         self._attempts = 0
         self.maximum_attempts = attempts
 
-        self.console_output = console_output
+        self._debug = debug
+        self._stdout = None if debug else subprocess.DEVNULL
 
     def play(self, **data):
         '''A more intuitively-named wrapper for the _connect method.'''
@@ -54,7 +55,7 @@ class ToontownLauncher:
     def _message(self, message):
         '''Print a message to the console.'''
 
-        if self.console_output:
+        if self._debug:
             print(message)
 
     def _connect(self, **data):
@@ -161,45 +162,18 @@ class ToontownLauncher:
 
         # Start the Toontown Rewritten process
         if operating_system == 'Windows':
-            subprocess.Popen(args="TTREngine.exe", creationflags=0x08000000)
+            subprocess.Popen(
+                args="TTREngine.exe",
+                stdout=self._stdout,
+                creationflags=0x08000000,
+            )
         elif operating_system == 'Linux':
             # TODO: Linux features are currently untested.
-            subprocess.Popen(args="./TTREngine")
+            subprocess.Popen(args="./TTREngine", stdout=self._stdout)
         elif operating_system == 'Darwin':
-            subprocess.Popen(args='./Toontown Rewritten')
+            subprocess.Popen(args='./Toontown Rewritten', stdout=self._stdout)
         else:
             self._message('Your operating system is not currently supported.')
     
         # Let the user know the connection was successful
         self._message('Successfully connected.')
-        
-
-if __name__ == '__main__':
-
-    # Use pathlib to get the path of the project folder
-    import pathlib
-    PROJECT_DIRECTORY = pathlib.Path(__file__).parent.parent
-    DATA_FOLDER = os.path.join(PROJECT_DIRECTORY, 'data')
-
-    # Read the configuration file
-    config = configparser.ConfigParser()
-    CONFIG_PATH = os.path.join(DATA_FOLDER, 'config.ini')
-    config.read(CONFIG_PATH)
-
-    # Read the login information for the first toon
-    username1 = config['Toon 1']['username']
-    password1 = config['Toon 1']['password']
-    # Read the login information for the second toon
-    username2 = config['Toon 2']['username']
-    password2 = config['Toon 2']['password']
-
-    # Set the directory of the Toontown Rewritten engine
-    # TOONTOWN_DIRECTORY = r'C:\Program Files (x86)\Toontown Rewritten'
-    TOONTOWN_DIRECTORY = r'/Users/jake/Library/Application Support/Toontown Rewritten/'
-
-    # Launch the game for the first toon
-    launcher1 = ToontownLauncher(TOONTOWN_DIRECTORY)
-    launcher1.play(username=username1, password=password1)
-    # Launch the game for the second toon
-    launcher2 = ToontownLauncher(TOONTOWN_DIRECTORY)
-    launcher2.play(username=username2, password=password2)
