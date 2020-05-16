@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "multitooner"
-version = "0.1.0"
-description = "An easier way to manage and launch sessions for multiple toons for Toontown Rewritten."
+name = "tooner"
+version = "1.0.0"
+description = "An easier way to manage and launch sessions for Toontown Rewritten."
 authors = ["Jake Brehm <mail@jakebrehm.com>"]
 license = "GPL-3.0-or-later"
 

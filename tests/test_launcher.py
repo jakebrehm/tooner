@@ -9,7 +9,7 @@ Unit test of the launcher module of Multitooner.
 
 import unittest
 
-import multitooner.launcher
+import tooner.launcher
 
 
 class TestAnalyze(unittest.TestCase):
