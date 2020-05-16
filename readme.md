@@ -19,13 +19,15 @@ Since I normally play on MacOS, there is no way for me to open multiple sessions
 
 Ultimately, I was successful in making this functionality work the three major operating systems: Windows, MacOS, and, I assume, on Linux (I haven't been able to test this).
 
-# Future plans for this project
+# Taking it further
 
+I have a few project ideas that could use this functionality:
 - Make a menu bar app for MacOS
 - Make a GUI to allow the user to store login information and start sessions for multiple toons
 - Refactor the launcher module to allow for better communication with the GUI
 - Send toast notifications for invasions
 - If multitooning, tile windows automatically
+However, they would be separate projects.
 
 # Authors
 - **Jake Brehm** - *Initial Work* - [Email](mailto:mail@jakebrehm.com) | [Github](http://github.com/jakebrehm) | [LinkedIn](http://linkedin.com/in/jacobbrehm)
