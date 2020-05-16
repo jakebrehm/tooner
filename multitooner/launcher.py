@@ -116,8 +116,8 @@ class ToontownLauncher:
         # Otherwise, the connection has failed
         else:
             self._message(
-                'Connection failed. '
-                'Please check your username and password and try again.'
+                'Connection failed. Something went wrong, but maybe it was '
+                'just your username and password.'
             )
 
     def _make_request(self, data):
