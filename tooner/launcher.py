@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-multitooner.launcher module
+tooner.launcher module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functions and classes related to communicating with the Toontown
