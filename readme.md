@@ -4,7 +4,7 @@ An easier way to manage and launch sessions for multiple toons for [Toontown Rew
 
 Currently, it allows you to communicate with Toontown Rewritten's login API in order to log in and start a session with very few lines of code.
 
-```
+```python
 launcher = multitooner.ToontownLauncher(directory="...")
 launcher.play(username="username", password="password")
 ```
