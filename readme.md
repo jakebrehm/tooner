@@ -21,6 +21,22 @@ Since I normally play on MacOS, there is no way for me to open multiple sessions
 
 Ultimately, I was successful in making this functionality work the three major operating systems: Windows, MacOS, and, I assume, on Linux (I haven't been able to test this).
 
+# How do I get it?
+
+It's easiest to simply install the package via pip using the following command:
+
+```
+pip install tooner
+```
+
+Otherwise, you can close this repository using the command
+
+```
+git clone https://github.com/jakebrehm/tooner.git
+```
+
+and then you can do whatever you want with it!
+
 # Taking it further
 
 I have a few project ideas that could use this functionality:
