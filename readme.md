@@ -1,11 +1,11 @@
-An easier way to manage and launch sessions for multiple toons for [Toontown Rewritten](https://toontownrewritten.com).
+An easier way to manage and launch sessions for [Toontown Rewritten](https://toontownrewritten.com).
 
 # What does it do?
 
 Currently, it allows you to communicate with Toontown Rewritten's login API in order to log in and start a session with very few lines of code.
 
 ```python
-launcher = multitooner.ToontownLauncher(directory="...")
+launcher = tooner.ToontownLauncher(directory="...")
 launcher.play(username="username", password="password")
 ```
 
