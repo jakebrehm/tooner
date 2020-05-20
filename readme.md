@@ -2,7 +2,7 @@ An easier way to manage and launch sessions for [Toontown Rewritten](https://too
 
 # What does it do?
 
-Currently, it allows you to communicate with Toontown Rewritten's login API in order to log in and start a session with very few lines of code.
+Currently, **tooner** allows you to communicate with Toontown Rewritten's login API in order to log in and start a session with very few lines of code.
 
 ```python
 launcher = tooner.ToontownLauncher(directory="...")
@@ -46,6 +46,11 @@ I have a few project ideas that could use this functionality:
 - Send toast notifications for invasions
 - If multitooning, tile windows automatically
 However, they would be separate projects.
+
+# Projects using **tooner**
+
+The following projects are using **tooner**:
+1. [MultiTooner](https://github.com/jakebrehm/multitooner) by [Jake Brehm](https://github.com/jakebrehm)
 
 # Authors
 - **Jake Brehm** - *Initial Work* - [Email](mailto:mail@jakebrehm.com) | [Github](http://github.com/jakebrehm) | [LinkedIn](http://linkedin.com/in/jacobbrehm)
