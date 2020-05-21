@@ -201,6 +201,27 @@ class InvasionTracker:
         self.api_url = 'https://www.toontownrewritten.com/api/invasions'
 
         self._debug = debug
+    
+    @property
+    def cogs(self):
+        invasions = self._make_request()['invasions']
+        cogs = [invasion['type'] for invasion in invasions.values()]
+        cogs = [cog.replace('\x03', '') for cog in cogs]
+        return cogs
+    
+    @property
+    def districts(self):
+        invasions = self._make_request()['invasions']
+        districts = list(invasions.keys())
+        return districts
+
+    def get_invasions(self):
+        invasions = self._make_request()
+
+        invasions = {k: v['type'] for k, v in invasions['invasions'].items()}
+        invasions = {k: v.replace('\x03', '') for k, v in invasions.items()}
+
+        return invasions
 
     def _make_request(self):
         '''Makes a get request to the Toontown Rewritten API.'''
@@ -210,7 +231,11 @@ class InvasionTracker:
         # Return the json data from the response
         return request.json()
 
+        
+
 
 if __name__ == '__main__':
     tracker = InvasionTracker()
-    print(tracker._make_request())
+    print(tracker.get_invasions())
+    print(tracker.cogs)
+    print(tracker.districts)
