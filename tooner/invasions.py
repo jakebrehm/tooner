@@ -96,9 +96,3 @@ class InvasionTracker:
         '''Returns relevant information from the API's json response.'''
 
         return self._make_request()['invasions']
-
-if __name__ == '__main__':
-    tracker = InvasionTracker()
-    print(tracker.get_invasions())
-    print(tracker.cogs)
-    print(tracker.districts)
