@@ -1,7 +1,6 @@
 [tool.poetry]
-<<<<<<< HEAD
 name = "tooner"
-version = "1.0.2"
+version = "1.0.3"
 description = "An easier way to manage and launch sessions for Toontown Rewritten."
 authors = ["Jake Brehm <mail@jakebrehm.com>"]
 license = "MIT"
@@ -12,18 +11,6 @@ python = "^3.7"
 requests = "^2.23.0"
 
 [tool.poetry.dev-dependencies]
-=======
-name = "MultiTooner"
-version = "0.1.0"
-description = ""
-authors = ["Jake Brehm <jake.m.brehm@gmail.com>"]
-
-[tool.poetry.dependencies]
-python = "^3.7"
-
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
->>>>>>> 4f0b7b70e275a672f07b3a014b2d3ef217fc3e1a
 
 [build-system]
 requires = ["poetry>=0.12"]
