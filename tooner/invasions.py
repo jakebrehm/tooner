@@ -44,7 +44,7 @@ class InvasionTracker:
     def invasions(self):
         '''A simple wrapper around the get_invasions method.'''
 
-        return self.get_invasions
+        return self.get_invasions()
     
     @property
     def cogs(self):
