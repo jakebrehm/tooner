@@ -37,15 +37,9 @@ git clone https://github.com/jakebrehm/tooner.git
 
 and then you can do whatever you want with it!
 
-# Taking it further
+# Future improvements
 
-I have a few project ideas that could use this functionality:
-<!-- - Make a menu bar app for MacOS  -->
-- Make a GUI to allow the user to store login information and start sessions for multiple toons
-- Refactor the launcher module to allow for better communication with the GUI
-- Send toast notifications for invasions
-- If multitooning, tile windows automatically
-However, they would be separate projects.
+The most pressing major improvement that could be made is **adding support for ToonGuard**. The only problem is writing it in such a way that makes sense while keeping in mind *tooner*'s two-line launcher paradigm, as it would require the user to enter a code *after* having run the script.
 
 # Projects using **tooner**
 
@@ -53,4 +47,5 @@ The following projects are using **tooner**:
 1. [MultiTooner](https://github.com/jakebrehm/multitooner) by [Jake Brehm](https://github.com/jakebrehm)
 
 # Authors
+
 - **Jake Brehm** - *Initial Work* - [Email](mailto:mail@jakebrehm.com) | [Github](http://github.com/jakebrehm) | [LinkedIn](http://linkedin.com/in/jacobbrehm)
