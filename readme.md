@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://github.com/jakebrehm/itooner/blob/master/img/logo.png" alt="Tooner Logo"/>
+  <img src="https://github.com/jakebrehm/tooner/blob/master/img/logo.png" alt="Tooner Logo"/>
 
   <br>
   <br>
