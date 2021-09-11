@@ -88,9 +88,16 @@ class ToontownLauncher:
 
         # If the connection request 
         app_token = data.pop('appToken', None)
+        authorization_token = data.pop('authToken', None)
 
         # Post a request and determine its success
-        response = self._make_request(data)
+        if app_token and authorization_token:
+            response = self._make_request({
+                'appToken': app_token,
+                'authToken': authorization_token,
+            })
+        else:
+            response = self._make_request(data)
         success = response.get('success', 'false')
 
         # If the connection was successful, proceed to launch the game
