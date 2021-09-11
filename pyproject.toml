@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tooner"
-version = "1.0.5"
+version = "1.1"
 description = "An easier way to manage and launch sessions for Toontown Rewritten."
 authors = ["Jake Brehm <mail@jakebrehm.com>"]
 license = "MIT"
