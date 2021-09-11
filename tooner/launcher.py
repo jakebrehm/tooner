@@ -115,6 +115,7 @@ class ToontownLauncher:
                 return None
             time.sleep(3)
             self._connect(appToken=app_token, authToken=authorization_token)
+            return True
         # If success was delayed, the user was placed in a queue
         elif success == 'delayed':
             queue_token = response.get('queueToken', None)
@@ -125,6 +126,7 @@ class ToontownLauncher:
             self._message(f'You are currently queued in position {position}.')
             time.sleep(3)
             self._connect(queueToken=queue_token)
+            return True
         # Otherwise, the connection has failed
         else:
             self._message(
